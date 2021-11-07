@@ -8,6 +8,8 @@ WORKDIR /app
 # Install app dependencies
 COPY ./requirements.txt ./
 COPY ./libs ./libs
+
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 RUN pip install -r requirements.txt
 
 # Bundle app source
