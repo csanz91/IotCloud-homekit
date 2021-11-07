@@ -1,0 +1,6 @@
+README.rst
+setup.py
+dockersecrets.egg-info/PKG-INFO
+dockersecrets.egg-info/SOURCES.txt
+dockersecrets.egg-info/dependency_links.txt
+dockersecrets.egg-info/top_level.txt

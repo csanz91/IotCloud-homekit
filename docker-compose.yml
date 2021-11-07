@@ -1,0 +1,19 @@
+version: '3.3'
+services: 
+  homekit:
+    user: "1000:1000"
+    container_name: homekit
+    build: ./python-homekit
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      RUNNING_IN_DOCKER: "true"
+    volumes:
+      - ./python-homekit/logs:/app/logs
+      - ./python-homekit/data:/homekit_data
+    secrets:
+      - homekit_secrets
+      
+secrets:
+  homekit_secrets:
+      file: ./python-homekit/secrets
