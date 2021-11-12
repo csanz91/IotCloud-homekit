@@ -185,7 +185,7 @@ class RGBLight(IotCloudLight):
             map(lambda x: int(x * 255), hsv_to_rgb(hue / 360.0, self.saturation, 1.0))
         )
         logger.debug(f"Setting color to {hexColor}")
-        self.mqttclient.publish(self.setColorTopic, hexColor, qos=2)
+        self.mqttclient.publish(self.setColorTopic, hexColor, qos=2, retain=True)
 
 
 class Switch(Accessory):
@@ -292,7 +292,7 @@ class Thermostat(Accessory):
         self.mqttclient.publish(self.setStateTopic, newState, qos=2)
 
     def setSetpoint(self, value):
-        self.mqttclient.publish(self.setpointTopic, value, qos=2)
+        self.mqttclient.publish(self.setpointTopic, value, qos=2, retain=True)
 
     def onState(self, client, userdata, msg):
 
